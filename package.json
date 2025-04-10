@@ -1,0 +1,21 @@
+{
+  "name": "fjord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "dev": "tsx ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "RealPeha",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^6.13.4",
+    "ethers-multicall-provider": "^6.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
