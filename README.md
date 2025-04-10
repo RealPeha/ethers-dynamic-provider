@@ -96,6 +96,12 @@ const provider = new DynamicProvider(
 
 Uses a primary RPC endpoint and only switches to the next one when the current RPC fails
 
+<details>
+  <summary>Visualization</summary>
+  
+  ![](./demo/gifs/fallback.gif)
+</details>
+
 ```typescript
 import { FallbackStrategy } from "ethers-dynamic-provider";
 
@@ -111,6 +117,12 @@ const provider = new DynamicProvider(
 
 Randomly selects an RPC endpoint from the available list
 
+<details>
+  <summary>Visualization</summary>
+  
+  ![](./demo/gifs/random.gif)
+</details>
+
 ```typescript
 import { RandomStrategy } from "ethers-dynamic-provider";
 
@@ -125,6 +137,12 @@ const provider = new DynamicProvider(
 ### SequentialStrategy
 
 Uses RPC endpoints in sequence, switching to the next one when number of requests to current RPC reaches `requestsPerRpc` limit
+
+<details>
+  <summary>Visualization</summary>
+  
+  ![](./demo/gifs/sequential.gif)
+</details>
 
 ```typescript
 import { SequentialStrategy } from "ethers-dynamic-provider";
@@ -143,6 +161,12 @@ const provider = new DynamicProvider(
 
 Selects the RPC endpoint with the highest block number. The block number is synchronized at the first request, and then every `syncInterval` milliseconds
 
+<details>
+  <summary>Visualization</summary>
+  
+  ![](./demo/gifs/highest-block.gif)
+</details>
+
 ```typescript
 import { HighestBlockStrategy } from "ethers-dynamic-provider";
 
@@ -160,6 +184,12 @@ const provider = new DynamicProvider(
 
 Sends requests to all RPCs simultaneously and returns the first successful response
 
+<details>
+  <summary>Visualization</summary>
+  
+  ![](./demo/gifs/fastest.gif)
+</details>
+
 ```typescript
 import { FastestStrategy } from "ethers-dynamic-provider";
 
@@ -174,6 +204,12 @@ const provider = new DynamicProvider(
 ### DynamicStrategy
 
 Analyzes response time of each RPC and selects the fastest one based on average response time of the last `historyDepth` requests
+
+<details>
+  <summary>Visualization</summary>
+  
+  ![](./demo/gifs/dynamic.gif)
+</details>
 
 ```typescript
 import { DynamicStrategy } from "ethers-dynamic-provider";
