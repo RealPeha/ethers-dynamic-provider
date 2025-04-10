@@ -99,7 +99,7 @@ Uses a primary RPC endpoint and only switches to the next one when the current R
 <details>
   <summary>Visualization</summary>
   
-  ![](./demo/gifs/fallback.gif)
+  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/fallback.gif)
 </details>
 
 ```typescript
@@ -120,7 +120,7 @@ Randomly selects an RPC endpoint from the available list
 <details>
   <summary>Visualization</summary>
   
-  ![](./demo/gifs/random.gif)
+  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/random.gif)
 </details>
 
 ```typescript
@@ -141,7 +141,7 @@ Uses RPC endpoints in sequence, switching to the next one when number of request
 <details>
   <summary>Visualization</summary>
   
-  ![](./demo/gifs/sequential.gif)
+  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/sequential.gif)
 </details>
 
 ```typescript
@@ -164,7 +164,7 @@ Selects the RPC endpoint with the highest block number. The block number is sync
 <details>
   <summary>Visualization</summary>
   
-  ![](./demo/gifs/highest-block.gif)
+  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/highest-block.gif)
 </details>
 
 ```typescript
@@ -187,7 +187,7 @@ Sends requests to all RPCs simultaneously and returns the first successful respo
 <details>
   <summary>Visualization</summary>
   
-  ![](./demo/gifs/fastest.gif)
+  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/fastest.gif)
 </details>
 
 ```typescript
@@ -208,7 +208,7 @@ Analyzes response time of each RPC and selects the fastest one based on average 
 <details>
   <summary>Visualization</summary>
   
-  ![](./demo/gifs/dynamic.gif)
+  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/dynamic.gif)
 </details>
 
 ```typescript
