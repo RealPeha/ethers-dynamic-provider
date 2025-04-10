@@ -1,20 +1,39 @@
 {
-  "name": "fjord",
+  "name": "ethers-dynamic-provider",
   "version": "1.0.0",
-  "description": "",
-  "main": "./src/index.ts",
+  "description": "ethers.js provider that supports multiple RPC endpoints with various routing strategies",
+  "type": "module",
   "scripts": {
-    "dev": "tsx ./src/index.ts"
+    "build": "npm run clean && tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && copyfiles -u 1 src/*.d.ts lib/types",
+    "clean": "rm -rf lib"
   },
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/types/index.d.ts",
+  "files": [
+    "lib/*",
+    "demo/gifs/*"
+  ],
   "keywords": [],
   "author": "RealPeha",
   "license": "ISC",
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RealPeha/ethers-dynamic-provider"
+  },
+  "bugs": {
+    "url": "https://github.com/RealPeha/ethers-dynamic-provider/issues"
+  },
+  "homepage": "https://github.com/RealPeha/ethers-dynamic-provider#readme",
+  "peerDependencies": {
     "ethers": "^6.13.4",
     "ethers-multicall-provider": "^6.4.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "copyfiles": "^2.4.1",
+    "ethers": "^6.13.4",
+    "ethers-multicall-provider": "^6.4.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   }
