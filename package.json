@@ -1,6 +1,6 @@
 {
   "name": "ethers-dynamic-provider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ethers.js provider that supports multiple RPC endpoints with various routing strategies",
   "scripts": {
     "build": "npm run clean && tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && copyfiles -u 1 src/*.d.ts lib/types",
