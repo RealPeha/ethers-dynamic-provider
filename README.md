@@ -1,6 +1,6 @@
 # ethers-dynamic-provider
 
-This is a replacement of `JsonRpcProvider` for [ethers.js](https://github.com/ethers-io/ethers.js) that supports multiple RPC endpoints with various routing strategies. This will allow you to make hundreds of requests per second even for free public RPC
+Drop-in replacement for [ethers.js](https://github.com/ethers-io/ethers.js) `JsonRpcProvider` with built-in support for balancing between multiple RPC endpoints.
 
 ## Installation
 
@@ -19,20 +19,23 @@ pnpm add ethers-dynamic-provider
 - Automatic failover between multiple RPC endpoints using different strategies.
 - Built-in support for multicall functionality.
 
-```diff
--  const provider = new JsonRpcProvider("https://rpc1.example.com")
-+  const provider = new DynamicProvider(
-+   ["https://rpc1.example.com", "https://rpc2.example.com"], // add another RPC as fallback
-+   {
-+     strategy: new FallbackStrategy(), // use FallbackStrategy
-+     multicall: true,
-+   }
-+  )
+```typescript
+import { DynamicProvider, FallbackStrategy } from 'ethers-dynamic-provider'
+
+const provider = new DynamicProvider(
+  ["https://rpc1.example.com", "https://rpc2.example.com"], // add another RPC as fallback
+  {
+    strategy: new FallbackStrategy(),
+  }
+)
+
+// Use like a normal ethers.js provider
+const block = await provider.getBlockNumber()
 ```
 
 ### Built-in multicall
 
-Multicall functionality is provided by the [ethers-multicall-provider](https://github.com/Rubilmax/ethers-multicall-provider) library
+Multicall functionality is provided by the [ethers-multicall-provider](https://github.com/Rubilmax/ethers-multicall-provider) and can be enabled if needed.
 
 ```typescript
 const provider = new DynamicProvider(
@@ -99,11 +102,11 @@ Uses a primary RPC endpoint and only switches to the next one when the current R
 <details>
   <summary>Visualization</summary>
   
-  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/fallback.gif)
+  ![](https://raw.githubusercontent.com/RealPeha/ethers-dynamic-provider/refs/heads/main/demo/gifs/fallback.gif)
 </details>
 
 ```typescript
-import { FallbackStrategy } from "ethers-dynamic-provider";
+import { DynamicProvider, FallbackStrategy } from "ethers-dynamic-provider";
 
 const provider = new DynamicProvider(
   ["https://rpc1.example.com", "https://rpc2.example.com"],
@@ -120,11 +123,11 @@ Randomly selects an RPC endpoint from the available list
 <details>
   <summary>Visualization</summary>
   
-  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/random.gif)
+  ![](https://raw.githubusercontent.com/RealPeha/ethers-dynamic-provider/refs/heads/main/demo/gifs/random.gif)
 </details>
 
 ```typescript
-import { RandomStrategy } from "ethers-dynamic-provider";
+import { DynamicProvider, RandomStrategy } from "ethers-dynamic-provider";
 
 const provider = new DynamicProvider(
   ["https://rpc1.example.com", "https://rpc2.example.com"],
@@ -141,11 +144,11 @@ Uses RPC endpoints in sequence, switching to the next one when number of request
 <details>
   <summary>Visualization</summary>
   
-  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/sequential.gif)
+  ![](https://raw.githubusercontent.com/RealPeha/ethers-dynamic-provider/refs/heads/main/demo/gifs/sequential.gif)
 </details>
 
 ```typescript
-import { SequentialStrategy } from "ethers-dynamic-provider";
+import { DynamicProvider, SequentialStrategy } from "ethers-dynamic-provider";
 
 const provider = new DynamicProvider(
   ["https://rpc1.example.com", "https://rpc2.example.com"],
@@ -164,11 +167,11 @@ Selects the RPC endpoint with the highest block number. The block number is sync
 <details>
   <summary>Visualization</summary>
   
-  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/highest-block.gif)
+  ![](https://raw.githubusercontent.com/RealPeha/ethers-dynamic-provider/refs/heads/main/demo/gifs/highest-block.gif)
 </details>
 
 ```typescript
-import { HighestBlockStrategy } from "ethers-dynamic-provider";
+import { DynamicProvider, HighestBlockStrategy } from "ethers-dynamic-provider";
 
 const provider = new DynamicProvider(
   ["https://rpc1.example.com", "https://rpc2.example.com"],
@@ -186,12 +189,13 @@ Sends requests to all RPCs simultaneously and returns the first successful respo
 
 <details>
   <summary>Visualization</summary>
+
   
-  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/fastest.gif)
+  ![](https://raw.githubusercontent.com/RealPeha/ethers-dynamic-provider/refs/heads/main/demo/gifs/fastest.gif)
 </details>
 
 ```typescript
-import { FastestStrategy } from "ethers-dynamic-provider";
+import { DynamicProvider, FastestStrategy } from "ethers-dynamic-provider";
 
 const provider = new DynamicProvider(
   ["https://rpc1.example.com", "https://rpc2.example.com"],
@@ -208,11 +212,11 @@ Analyzes response time of each RPC and selects the fastest one based on average 
 <details>
   <summary>Visualization</summary>
   
-  ![](https://github.com/RealPeha/ethers-dynamic-provider/blob/main/demo/gifs/dynamic.gif)
+  ![](https://raw.githubusercontent.com/RealPeha/ethers-dynamic-provider/refs/heads/main/demo/gifs/dynamic.gif)
 </details>
 
 ```typescript
-import { DynamicStrategy } from "ethers-dynamic-provider";
+import { DynamicProvider, DynamicStrategy } from "ethers-dynamic-provider";
 
 const provider = new DynamicProvider(
   ["https://rpc1.example.com", "https://rpc2.example.com"],
