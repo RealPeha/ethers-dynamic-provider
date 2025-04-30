@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/RealPeha/ethers-dynamic-provider#readme",
   "peerDependencies": {
-    "ethers": "^6.13.4",
-    "ethers-multicall-provider": "^6.4.2"
+    "ethers": ">6.0.0",
+    "ethers-multicall-provider": ">6.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
